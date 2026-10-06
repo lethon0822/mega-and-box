@@ -28,7 +28,7 @@ public class SecurityConfig {
 
                 // 요청 URL별 인가 설정
                 .authorizeHttpRequests(auth -> auth
-                        //Swagger
+                        //Swagger 페이지 오픈
                         .requestMatchers(
                                 "/swagger-ui/**",
                                 "/swagger-ui.html",
@@ -36,6 +36,7 @@ public class SecurityConfig {
                                 "/swagger-resources/**",
                                 "/webjars/**"
                         ).permitAll()
+                        // 예시 페이지 오픈
                         .requestMatchers(
                                 "/api/v1/movies/**"
                         ).permitAll()
