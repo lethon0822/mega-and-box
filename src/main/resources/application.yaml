@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: cinema
+
+  # ?????? ?? (DataSource)
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME}?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  # JPA & Hibernate ??
+  jpa:
+    open-in-view: false     # OSIV ???? (??? ?? ?? ? ?? ???)
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+          batch_size: 20
+        format_sql: true # ??? ??? ??? ? ?? ??? ???
+        order_updates: true
+        show_sql: true
+
+  # MyBatis ??
+  mybatis:
+    mapper-locations: classpath:mapper/**/*.xml
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+      map-underscore-to-camel-case: true
+      default-statement-timeout: 10
+
+  # Swagger (springdoc-openapi) ??
+  springdoc:
+    swagger-ui:
+      path: /swagger-ui.html
+      groups-order: DESC
+      operations-sorter: method
+      disable-swagger-default-url: true
+      display-request-duration: true
+    api-docs:
+      path: /v3/api-docs
+
+  logging:
+    level:
+      root: INFO
+      # ??? ??(? ???? ?????? ??)
+      com.rainbowuniv: DEBUG
+      org.mybatis: DEBUG
+      # log4jdbc ????
+      jdbc.sqlonly: DEBUG     # ??? SQL
+      jdbc.sqltiming: INFO    # ???? ??
+      jdbc.audit: OFF
+      jdbc.resultset: OFF
+      jdbc.connection: OFF

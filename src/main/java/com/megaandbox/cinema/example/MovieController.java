@@ -1,4 +1,4 @@
-package com.megaandbox.cinema.movie;
+package com.megaandbox.cinema.example;
 
 import com.megaandbox.cinema.common.ApiResponse;
 import com.megaandbox.cinema.common.SuccessCode;
@@ -18,8 +18,8 @@ public class MovieController {
 
     private final MovieService movieService;
 
-    // 1. 데이터 반환 (조회)
-    @GetMovieListSwaggerDocs
+    // 데이터 반환 (조회)
+    @GetMovieListSwaggerDocs // 스웨거 파일 어노테이션
     @GetMapping("/{movieId}")
     public ResponseEntity<ApiResponse<MovieDto>> getMovieDetail(@PathVariable Long movieId) {
         MovieDto response = movieService.getMovie(movieId);
