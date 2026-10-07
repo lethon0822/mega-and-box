@@ -1,4 +1,4 @@
-package com.megaandbox.cinema.movie;
+package com.megaandbox.cinema.example;
 
 import lombok.*;
 
