@@ -1,4 +1,4 @@
-package com.megaandbox.cinema.exception;
+package com.megaandbox.cinema.configuration.exception;
 
 
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.megaandbox.cinema.exception;
+package com.megaandbox.cinema.configuration.exception;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;

@@ -1,7 +1,7 @@
 package com.megaandbox.cinema.example;
 
-import com.megaandbox.cinema.exception.CustomException;
-import com.megaandbox.cinema.exception.ErrorCode;
+import com.megaandbox.cinema.configuration.exception.CustomException;
+import com.megaandbox.cinema.configuration.exception.ErrorCode;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
