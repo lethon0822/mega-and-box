@@ -1,7 +1,8 @@
 package com.megaandbox.cinema.entity.user;
 
 
+import jakarta.persistence.Entity;
 
-@Entity
+
 public class User {
 }
