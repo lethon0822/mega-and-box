@@ -4,7 +4,7 @@ constants:
     bearer-format: JWT
 
     claim-key: signedUser
-    secret-key: ${JWT_KEY}
+    secret-key: ${JWT_KEY} # ase64URL 인코딩 기준으로 최소 43자를 권장합니다.(아니면 오류남)
 
     access-token-cookie-name: access-token
     access-token-cookie-path: / #모든 경로에서 access-token값이 넘어온다.
@@ -23,8 +23,8 @@ spring:
 
   # DataSource
   datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME}?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
 

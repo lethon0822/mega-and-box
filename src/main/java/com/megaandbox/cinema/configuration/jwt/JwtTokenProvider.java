@@ -1,8 +1,9 @@
 package com.megaandbox.cinema.configuration.jwt;
 
+
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import com.megaandbox.cinema.configuration.constants.ConstJwt;
 import com.megaandbox.cinema.configuration.model.JwtUser;
 import io.jsonwebtoken.Claims;
@@ -13,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 import io.jsonwebtoken.security.Keys;
+
 
 import javax.crypto.SecretKey;
 import java.util.Date;
