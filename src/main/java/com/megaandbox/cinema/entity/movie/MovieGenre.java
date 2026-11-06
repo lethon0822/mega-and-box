@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-//@Table(name = "movie_genre")
 public class MovieGenre {
 
     @EmbeddedId
