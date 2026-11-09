@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class MovieGenre {
 
     @EmbeddedId
-    private MovieGenreId id;
+    private MovieGenreIds id;
 
     @MapsId("movieId")
     @ManyToOne(fetch = FetchType.LAZY)

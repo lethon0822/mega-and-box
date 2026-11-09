@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
+@Builder
 @Table(uniqueConstraints = {
         @UniqueConstraint(columnNames = {"movie_id", "user_id"})
 })
