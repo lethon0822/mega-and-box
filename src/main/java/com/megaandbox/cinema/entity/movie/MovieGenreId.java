@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Embeddable
 @Getter
 @Builder
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
 public class MovieGenreId implements Serializable {

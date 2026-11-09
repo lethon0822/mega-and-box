@@ -1,17 +1,16 @@
 package com.megaandbox.cinema.entity.movie;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
-@Setter
-@NoArgsConstructor
+@Builder
+//@NoArgsConstructor
+@AllArgsConstructor
 //@Table(name = "genre")
 public class Genre {
 
