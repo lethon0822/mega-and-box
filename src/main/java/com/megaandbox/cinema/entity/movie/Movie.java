@@ -73,7 +73,7 @@ public class Movie {
     private Boolean isExclusive;
 
     @Column(nullable = false, precision = 10, scale = 1)
-    private BigDecimal reservationRate;
+    private double reservationRate;
 
     // 영화 - 장르 연결
     @Builder.Default
