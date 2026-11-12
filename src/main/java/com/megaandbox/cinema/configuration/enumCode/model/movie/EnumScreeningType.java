@@ -18,9 +18,9 @@ public enum EnumScreeningType implements EnumMapperType {
     private final String value;
 
     @Converter(autoApply = true)
-    public static class CodeConverter extends AbstractEnumCodeConverter<EnumSeatType> {
+    public static class CodeConverter extends AbstractEnumCodeConverter<EnumScreeningType> {
         public CodeConverter() {
-            super(EnumSeatType.class, false);
+            super(EnumScreeningType.class, false);
         }
     }
 }

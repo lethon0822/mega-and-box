@@ -1,13 +1,12 @@
 package com.megaandbox.cinema.entity.user;
 
 
+import com.megaandbox.cinema.configuration.enumCode.model.user.EnumUserGrade;
+import com.megaandbox.cinema.configuration.enumCode.model.user.EnumUserStatus;
 import com.megaandbox.cinema.entity.CreatedAt;
 import com.megaandbox.cinema.entity.UpdatedAt;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.sql.Update;
 
 import java.time.LocalDate;
@@ -18,6 +17,7 @@ import java.time.LocalDateTime;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class User extends UpdatedAt {
 
     @Id
@@ -42,15 +42,14 @@ public class User extends UpdatedAt {
     @Column(length = 20, nullable = false, unique = true)
     private String phone;
 
-    // Enum으로 처리할지 고민
     @Column(nullable = false)
-    private int userStatus;
+    private EnumUserStatus userStatus;
 
     @Column(nullable = false)
-    private long point;
+    private Long point;
 
     @Column(nullable = false, length = 20)
-    private String grade;
+    private EnumUserGrade grade;
 
     @Column(length = 200)
     private String profile;
