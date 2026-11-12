@@ -2,6 +2,7 @@ package com.megaandbox.cinema.entity.PayAndBooking;
 
 
 import com.megaandbox.cinema.entity.movie.MovieSchedule;
+import com.megaandbox.cinema.entity.user.UnUser;
 import com.megaandbox.cinema.entity.user.User;
 import jakarta.persistence.*;
 import lombok.*;
@@ -22,11 +23,11 @@ public class Booking {
     private Long bookingId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = true)
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = true)
+    @JoinColumn(name = "unuser_id")
     private UnUser unUser;
 
     @OneToOne(fetch = FetchType.LAZY)
@@ -34,7 +35,7 @@ public class Booking {
     private Payment payment;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name ="msId")
     private MovieSchedule movieSchedule;
 
     @Column(nullable = false, unique = true, length = 16)

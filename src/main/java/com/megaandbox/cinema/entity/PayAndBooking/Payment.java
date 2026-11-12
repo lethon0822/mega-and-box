@@ -1,8 +1,8 @@
 package com.megaandbox.cinema.entity.PayAndBooking;
 
 
-import com.megaandbox.cinema.configuration.enumCode.model.EnumPaymentStatus;
-import com.megaandbox.cinema.configuration.enumCode.model.EnumPaymentType;
+import com.megaandbox.cinema.configuration.enumCode.model.socialpay.EnumPaymentStatus;
+import com.megaandbox.cinema.configuration.enumCode.model.socialpay.EnumPaymentType;
 import jakarta.persistence.*;
 import lombok.*;
 

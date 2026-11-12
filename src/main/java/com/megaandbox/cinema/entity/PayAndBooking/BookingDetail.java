@@ -18,11 +18,11 @@ public class BookingDetail {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name="booking_id")
     private Booking booking;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name="ty_type_id")
     private TicketType ticketType;
 
     @Column(nullable = false)

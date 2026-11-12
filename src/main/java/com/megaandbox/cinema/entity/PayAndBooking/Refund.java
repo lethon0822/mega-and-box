@@ -18,7 +18,7 @@ public class Refund {
     private Long refundId;
 
     @OneToOne
-    @JoinColumn(nullable = false, unique = true)
+    @JoinColumn(nullable = false, unique = true, name="payment_id")
     private Payment payment;
 
     @Column(nullable = false)

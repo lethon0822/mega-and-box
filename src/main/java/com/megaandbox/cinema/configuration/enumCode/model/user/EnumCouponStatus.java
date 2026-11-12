@@ -1,4 +1,4 @@
-package com.megaandbox.cinema.configuration.enumCode.model;
+package com.megaandbox.cinema.configuration.enumCode.model.user;
 
 import com.megaandbox.cinema.configuration.enumCode.AbstractEnumCodeConverter;
 import com.megaandbox.cinema.configuration.enumCode.EnumMapperType;
@@ -8,19 +8,16 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum SeatType implements EnumMapperType {
-
-    NORMAL("01", "일반"),
-    SPECIAL("02", "특별"),
-    DISABLED("03", "장애인");
+public enum EnumCouponStatus implements EnumMapperType {
+    ACTIVE("01","유효")
+    , USED("02","사용완료")
+    , EXPIRED("03","기간만료");
 
     private final String code;
     private final String value;
 
     @Converter(autoApply = true)
-    public static class CodeConverter extends AbstractEnumCodeConverter<SeatType> {
-        public CodeConverter() {
-            super(SeatType.class, false);
-        }
+    public static class CodeConverter extends AbstractEnumCodeConverter<EnumCouponStatus> {
+        public CodeConverter() { super(EnumCouponStatus.class, false); }
     }
 }

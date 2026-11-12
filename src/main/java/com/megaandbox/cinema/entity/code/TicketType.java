@@ -1,6 +1,6 @@
 package com.megaandbox.cinema.entity.code;
 
-import com.megaandbox.cinema.configuration.enumCode.model.EnumAgeType;
+import com.megaandbox.cinema.configuration.enumCode.model.movie.EnumAgeType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,10 +14,10 @@ public class TicketType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ticketTypeId;
+    private Long tkTypeId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name="screening_type_id")
     private ScreeningType screeningType;
 
     @Enumerated(EnumType.STRING)

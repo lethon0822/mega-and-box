@@ -1,6 +1,6 @@
 package com.megaandbox.cinema.entity.code;
 
-import com.megaandbox.cinema.configuration.enumCode.model.SeatType;
+import com.megaandbox.cinema.configuration.enumCode.model.movie.EnumSeatType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,5 +27,5 @@ public class Seat {
     private String seatNumber;
 
     @Column(nullable = false)
-    private SeatType seatType;
+    private EnumSeatType enumSeatType;
 }
