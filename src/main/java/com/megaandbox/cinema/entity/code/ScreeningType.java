@@ -13,7 +13,7 @@ public class ScreeningType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer screeningTypeId;
+    private Long screeningTypeId;
 
     @Column(nullable = false, length = 20)
     private String typeName;

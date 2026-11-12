@@ -9,18 +9,13 @@ import java.util.List;
 @Entity
 @Getter
 @Builder
-//@NoArgsConstructor
 @AllArgsConstructor
-//@Table(name = "genre")
 public class Genre {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long genreId;
 
+    @Column(nullable = false)
     private String genreName;
-
-
-    @OneToMany(mappedBy = "genre")
-    private List<MovieGenre> movieGenres = new ArrayList<>();
 }

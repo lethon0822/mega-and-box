@@ -6,6 +6,7 @@ import lombok.*;
 
 @Entity
 @Getter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
@@ -16,11 +17,11 @@ public class MovieScreen {
 
     @MapsId("movieId")
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name ="movie_id")
     private Movie movie;
 
     @MapsId("screeningTypeId")
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name ="screening_type_id")
     private ScreeningType screeningType;
 }

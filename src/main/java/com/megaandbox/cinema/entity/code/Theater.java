@@ -1,9 +1,8 @@
 package com.megaandbox.cinema.entity.code;
 
+import com.megaandbox.cinema.entity.CreatedAt;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -11,7 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Theater {
+public class Theater extends CreatedAt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,9 +22,6 @@ public class Theater {
 
     @Column(nullable = false, length = 20)
     private String theaterName;
-
-    @Column(nullable = false)
-    private LocalDate createdAt;
 
     @Column(nullable = false, length = 100)
     private String address;

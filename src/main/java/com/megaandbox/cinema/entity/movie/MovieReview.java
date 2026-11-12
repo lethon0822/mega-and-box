@@ -1,43 +1,41 @@
 package com.megaandbox.cinema.entity.movie;
 
+import com.megaandbox.cinema.entity.CreatedAt;
 import com.megaandbox.cinema.entity.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
+@Builder
 @Table(uniqueConstraints = {
         @UniqueConstraint(columnNames = {"movie_id", "user_id"})
 })
-public class MovieReview {
+public class MovieReview extends CreatedAt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reviewId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name ="movie_id")
     private Movie movie;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name ="user_id")
     private User user;
 
     @Column
     private int star;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String review;
 
     @Column(nullable = false)
-    private int likeCount;
+    private int like;
 
-    @Column(nullable = false)
-    private LocalDateTime createdAt;
 }

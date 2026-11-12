@@ -1,4 +1,4 @@
-package com.megaandbox.cinema.configuration.enumCode.model;
+package com.megaandbox.cinema.configuration.enumCode.model.socialpay;
 
 import com.megaandbox.cinema.configuration.enumCode.AbstractEnumCodeConverter;
 import com.megaandbox.cinema.configuration.enumCode.EnumMapperType;
@@ -10,9 +10,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum EnumPaymentType implements EnumMapperType {
 
-    STORE("01", "매점"),
-    BOOKING("02", "예매"),
-    MEMBERSHIP("03", "멤버십");
+    STORE("store", "매점"),
+    BOOKING("booking", "예매"),
+    MEMBERSHIP("membership", "멤버십");
 
     private final String code;
     private final String value;

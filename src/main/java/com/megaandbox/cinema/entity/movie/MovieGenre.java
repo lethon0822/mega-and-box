@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class MovieGenre {
 
     @EmbeddedId
-    private MovieGenreId id;
+    private MovieGenreIds id;
 
     @MapsId("movieId")
     @ManyToOne(fetch = FetchType.LAZY)
@@ -22,7 +22,7 @@ public class MovieGenre {
     private Movie movie;
 
     @MapsId("genreId")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "genre_id")
     private Genre genre;
 }

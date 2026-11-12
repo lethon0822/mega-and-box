@@ -1,11 +1,14 @@
 package com.megaandbox.cinema.entity.user;
 
 
+import com.megaandbox.cinema.entity.CreatedAt;
+import com.megaandbox.cinema.entity.UpdatedAt;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.sql.Update;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -15,11 +18,11 @@ import java.time.LocalDateTime;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class User extends UpdatedAt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long userId;
 
     @Column(length = 125, nullable = false, unique = true)
     private String email;
@@ -41,22 +44,16 @@ public class User {
 
     // Enum으로 처리할지 고민
     @Column(nullable = false)
-    private int status;
+    private int userStatus;
 
     @Column(nullable = false)
     private long point;
 
+    @Column(nullable = false, length = 20)
+    private String grade;
+
     @Column(length = 200)
     private String profile;
-
-    @Column(length = 20)
-    private String cardNumber;
-
-    @Column(length = 200)
-    private String cardPassword;
-
-    @Column(nullable = false)
-    private LocalDateTime updatedAt;
 
     @Column(nullable = false)
     private LocalDate pwUpdatedAt;

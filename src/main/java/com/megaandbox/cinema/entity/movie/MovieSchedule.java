@@ -1,5 +1,6 @@
 package com.megaandbox.cinema.entity.movie;
 
+import com.megaandbox.cinema.configuration.enumCode.model.movie.EnumScreeningType;
 import com.megaandbox.cinema.entity.code.Auditorium;
 import com.megaandbox.cinema.entity.code.ScreeningType;
 import jakarta.persistence.*;
@@ -10,6 +11,7 @@ import java.time.LocalTime;
 
 @Entity
 @Getter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
@@ -20,15 +22,15 @@ public class MovieSchedule {
     private Long msId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false ,name ="movie_id")
     private Movie movie;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false ,name ="screening_type_id")
     private ScreeningType screeningType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false,name ="auditorium_id")
     private Auditorium auditorium;
 
     @Column(nullable = false)
@@ -41,7 +43,7 @@ public class MovieSchedule {
     private LocalTime endTime;
 
     @Column(nullable = false, length = 10)
-    private String screeningPeriod;
+    private EnumScreeningType enumScreeningType;
 
     @Column(nullable = false)
     private Integer round;

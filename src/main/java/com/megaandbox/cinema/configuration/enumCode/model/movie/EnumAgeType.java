@@ -1,4 +1,4 @@
-package com.megaandbox.cinema.configuration.enumCode.model;
+package com.megaandbox.cinema.configuration.enumCode.model.movie;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -1,5 +1,4 @@
-package com.megaandbox.cinema.configuration.enumCode.model;
-
+package com.megaandbox.cinema.configuration.enumCode.model.socialpay;
 
 import com.megaandbox.cinema.configuration.enumCode.AbstractEnumCodeConverter;
 import com.megaandbox.cinema.configuration.enumCode.EnumMapperType;
@@ -9,21 +8,21 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum EnumPaymentStatus implements EnumMapperType {
+public enum EnumPayMethod implements EnumMapperType {
 
-    COMPLETED("01", "결제 완료"),
-    CANCELLED("02", "결제 취소"),
-    FAILED("03", "결제 실패");
+    NAVER("naver", "네이버"),
+    KAKAO("kakao", "카카오");
+
 
     private final String code;
     private final String value;
 
     @Converter(autoApply = true)
     public static class EnumPaymentStatusConverter
-            extends AbstractEnumCodeConverter<EnumPaymentStatus> {
+            extends AbstractEnumCodeConverter<EnumPayMethod> {
 
         public EnumPaymentStatusConverter() {
-            super(EnumPaymentStatus.class, false);
+            super(EnumPayMethod.class, false);
         }
     }
 }
