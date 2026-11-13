@@ -24,7 +24,7 @@ public class UserCoupon extends CreatedAt {
     private Long ucId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name = "user_id")
     private User user;
 
     @Column(nullable = false)

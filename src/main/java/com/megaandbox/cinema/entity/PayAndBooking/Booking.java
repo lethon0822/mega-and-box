@@ -41,7 +41,7 @@ public class Booking {
     @Column(nullable = false, unique = true, length = 16)
     private String tkNum;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 50)
     private String movieTitle;
 
     @Column(nullable = false, length = 20)
