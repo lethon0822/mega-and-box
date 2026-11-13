@@ -33,8 +33,8 @@ public class UserCoupon extends CreatedAt {
     @Column
     private LocalDateTime usedAt;
 
-    @Column(nullable = false)
-    private boolean cpType;
+    @Column(nullable = false, length = 10)
+    private String cpType;
 
     @Column(nullable = false)
     private EnumCouponStatus cpStatus;

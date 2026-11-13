@@ -18,7 +18,7 @@ public class SocialAccount {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false)
-    private User user;
+    private User userId;
 
     @Column(nullable = false, length = 10)
     private EnumPayMethod platform;
