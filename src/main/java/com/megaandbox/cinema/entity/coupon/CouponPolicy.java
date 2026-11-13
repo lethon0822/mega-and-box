@@ -1,8 +1,8 @@
 package com.megaandbox.cinema.entity.coupon;
 
+import com.megaandbox.cinema.configuration.enumCode.model.user.EnumCouponType;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.Comment;
 
 @Entity
 @Builder
@@ -21,8 +21,7 @@ public class CouponPolicy {
     private String cpName;
 
     @Column(nullable = false)
-    // 0: FIXED, 1: PERCENT
-    private boolean discountType;
+    private EnumCouponType discountType;
 
     @Column(nullable = false)
     private int discountAmount;

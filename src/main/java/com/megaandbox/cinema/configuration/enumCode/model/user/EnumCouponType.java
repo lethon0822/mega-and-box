@@ -1,4 +1,4 @@
-package com.megaandbox.cinema.configuration.enumCode.model.coupon;
+package com.megaandbox.cinema.configuration.enumCode.model.user;
 
 import com.megaandbox.cinema.configuration.enumCode.AbstractEnumCodeConverter;
 import com.megaandbox.cinema.configuration.enumCode.model.socialpay.EnumPayMethod;
