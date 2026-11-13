@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum EnumScreeningType implements EnumMapperType {
+public enum EnumScreeningPeriod implements EnumMapperType {
 
     NORMAL("moring", "조조"),
     SPECIAL("special", "일반"),
@@ -18,9 +18,9 @@ public enum EnumScreeningType implements EnumMapperType {
     private final String value;
 
     @Converter(autoApply = true)
-    public static class CodeConverter extends AbstractEnumCodeConverter<EnumScreeningType> {
+    public static class CodeConverter extends AbstractEnumCodeConverter<EnumScreeningPeriod> {
         public CodeConverter() {
-            super(EnumScreeningType.class, false);
+            super(EnumScreeningPeriod.class, false);
         }
     }
 }

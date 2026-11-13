@@ -29,10 +29,10 @@ public class MovieReview extends CreatedAt {
     @JoinColumn(nullable = false, name ="user_id")
     private User user;
 
-    @Column
+    @Column(nullable = false)
     private int star;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(columnDefinition = "TEXT")
     private String review;
 
     @Column(nullable = false)

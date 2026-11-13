@@ -2,7 +2,6 @@ package com.megaandbox.cinema.configuration.enumCode.model.user;
 
 import com.megaandbox.cinema.configuration.enumCode.AbstractEnumCodeConverter;
 import com.megaandbox.cinema.configuration.enumCode.EnumMapperType;
-import com.megaandbox.cinema.configuration.enumCode.model.movie.EnumScreeningType;
 import jakarta.persistence.Converter;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
