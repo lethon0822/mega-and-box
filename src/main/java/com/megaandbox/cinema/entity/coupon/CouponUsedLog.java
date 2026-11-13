@@ -13,13 +13,13 @@ import lombok.*;
 public class CouponUsedLog {
 
     @Id
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
-    private Payment paymentId;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false, name = "payment_id")
+    private Payment payment;
 
     @Id
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
-    private UserCoupon cpId;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false, name = "cp_id")
+    private UserCoupon cp;
 
 }

@@ -22,7 +22,7 @@ public class Refund {
     private Payment payment;
 
     @Column(nullable = false)
-    private int refundPrice;
+    private Integer refundPrice;
 
     @Column(nullable = false)
     private LocalDateTime refundDate;

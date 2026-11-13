@@ -24,9 +24,9 @@ public class CouponPolicy {
     private EnumCouponType discountType;
 
     @Column(nullable = false)
-    private int discountAmount;
+    private Integer discountAmount;
 
     @Column
-    private int validDays;
+    private Integer validDays;
 
 }
