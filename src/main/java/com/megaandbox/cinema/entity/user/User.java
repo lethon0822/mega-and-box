@@ -24,20 +24,20 @@ public class User extends UpdatedAt {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
-    @Column(length = 125, nullable = false, unique = true)
+    @Column(length = 30, nullable = false, unique = true)
     private String email;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 30, nullable = false)
     private String password;
 
     @Column(length = 20, nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 10)
     private LocalDate birth;
 
     @Column(nullable = false)
-    private int gender;
+    private boolean gender;
 
     @Column(length = 20, nullable = false, unique = true)
     private String phone;

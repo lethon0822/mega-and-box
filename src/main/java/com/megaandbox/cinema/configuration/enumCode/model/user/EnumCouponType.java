@@ -17,13 +17,4 @@ public enum EnumCouponType {
     private final String code;
     private final String value;
 
-    @Converter(autoApply = true)
-    public static class EnumPaymentStatusConverter
-            extends AbstractEnumCodeConverter<EnumPayMethod> {
-
-        public EnumPaymentStatusConverter() {
-            super(EnumPayMethod.class, false);
-        }
-    }
-
 }
