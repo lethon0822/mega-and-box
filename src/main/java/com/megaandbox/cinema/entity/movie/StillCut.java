@@ -16,10 +16,12 @@ public class StillCut {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long stillCutId;
 
-    @Column(nullable = false, length = 500)
-    private String imgUrl;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "movie_id", nullable = false)
     private Movie movie;
+
+    @Column(nullable = false, length = 500)
+    private String imgUrl;
+
+
 }

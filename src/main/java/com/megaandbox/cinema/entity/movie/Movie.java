@@ -3,6 +3,7 @@ package com.megaandbox.cinema.entity.movie;
 import com.megaandbox.cinema.configuration.enumCode.model.movie.EnumAgeRating;
 import com.megaandbox.cinema.configuration.enumCode.model.movie.EnumMovieStatus;
 import com.megaandbox.cinema.entity.CreatedAt;
+import com.megaandbox.cinema.entity.UpdatedAt;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
-public class Movie extends CreatedAt {
+public class Movie extends UpdatedAt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,27 +52,27 @@ public class Movie extends CreatedAt {
     @Column(columnDefinition = "TEXT")
     private String actor;
 
-
+    @Column
     private Integer runningTime;
 
-
+    @Column
     private EnumAgeRating ageRating;
 
-
+    @Column
     private LocalDate releaseDate;
 
-    @Enumerated(EnumType.STRING)
+
     @Column(nullable = false)
     private EnumMovieStatus movieStatus;
 
-    @Column(nullable = false)
-    private Integer movieLike;
+    @Column(nullable = false, columnDefinition = "INT DEFAULT 0")
+    private int movieLike;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TINYINT(1) DEFAULT 0")
     private Boolean isExclusive;
 
     @Column(nullable = false, precision = 10, scale = 1)
-    private BigDecimal reservationRate;
+    private BigDecimal reservationRate= BigDecimal.ZERO;
 
     // 영화 - 장르 연결
     @Builder.Default
