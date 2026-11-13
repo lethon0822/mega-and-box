@@ -13,14 +13,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Setter
 @EqualsAndHashCode
-public class membership {
+public class Membership {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long membershipId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name = "user_id")
     private User user;
 
     @Column(nullable = false)

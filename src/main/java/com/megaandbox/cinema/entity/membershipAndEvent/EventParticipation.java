@@ -18,12 +18,12 @@ public class EventParticipation extends CreatedAt {
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name = "event_id")
     private Event event;
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name = "user_id")
     private User user;
 
 }

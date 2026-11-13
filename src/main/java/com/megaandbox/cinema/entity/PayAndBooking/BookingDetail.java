@@ -22,7 +22,7 @@ public class BookingDetail {
     private Booking booking;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false, name="ty_type_id")
+    @JoinColumn(nullable = false, name="tk_type_id")
     private TicketType ticketType;
 
     @Column(nullable = false)
