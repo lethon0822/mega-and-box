@@ -56,4 +56,11 @@ public class User extends UpdatedAt {
 
     @Column(nullable = false)
     private LocalDate pwUpdatedAt;
+
+    @Column(length = 100)
+    private String naverAccount;
+
+    @Column(length = 100)
+    private String kakaoAccount;
+
 }
