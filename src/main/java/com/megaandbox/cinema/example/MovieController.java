@@ -4,6 +4,7 @@ import com.megaandbox.cinema.common.ApiResponse;
 import com.megaandbox.cinema.common.SuccessCode;
 import com.megaandbox.cinema.swagger.GetMovieListSwaggerDocs;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,11 @@ import org.springframework.web.bind.annotation.*;
 public class MovieController {
 
     private final MovieService movieService;
+
+    @PostMapping
+    public ResponseEntity<?> postMovie(){
+        return ResponseEntity.ok("안녕");
+    }
 
     // 데이터 반환 (조회)
     @GetMovieListSwaggerDocs // 스웨거 파일 어노테이션

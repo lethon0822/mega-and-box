@@ -27,5 +27,5 @@ public class Seat {
     private String seatNumber;
 
     @Column(nullable = false)
-    private EnumSeatType enumSeatType;
+    private EnumSeatType seatType;
 }

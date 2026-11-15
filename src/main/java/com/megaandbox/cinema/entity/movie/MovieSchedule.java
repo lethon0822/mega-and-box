@@ -1,6 +1,7 @@
 package com.megaandbox.cinema.entity.movie;
 
-import com.megaandbox.cinema.configuration.enumCode.model.movie.EnumScreeningType;
+import com.megaandbox.cinema.configuration.enumCode.model.movie.EnumScreeningPeriod;
+import com.megaandbox.cinema.entity.UpdatedAt;
 import com.megaandbox.cinema.entity.code.Auditorium;
 import com.megaandbox.cinema.entity.code.ScreeningType;
 import jakarta.persistence.*;
@@ -15,17 +16,17 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class MovieSchedule {
+public class MovieSchedule extends UpdatedAt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long msId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(nullable = false ,name ="movie_id")
     private Movie movie;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(nullable = false ,name ="screening_type_id")
     private ScreeningType screeningType;
 
@@ -43,7 +44,7 @@ public class MovieSchedule {
     private LocalTime endTime;
 
     @Column(nullable = false, length = 10)
-    private EnumScreeningType enumScreeningType;
+    private EnumScreeningPeriod screeningPeriod;
 
     @Column(nullable = false)
     private Integer round;
@@ -51,6 +52,6 @@ public class MovieSchedule {
     @Column(nullable = false)
     private Integer leftSeats;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TINYINT(1) DEFAULT 0")
     private Boolean stageCheck;
 }
