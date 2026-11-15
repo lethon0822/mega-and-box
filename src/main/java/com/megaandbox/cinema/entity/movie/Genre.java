@@ -10,6 +10,7 @@ import java.util.List;
 @Getter
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class Genre {
 
     @Id
@@ -18,4 +19,6 @@ public class Genre {
 
     @Column(nullable = false)
     private String genreName;
+
+
 }

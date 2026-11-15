@@ -25,4 +25,8 @@ public class Theater extends CreatedAt {
 
     @Column(nullable = false, length = 100)
     private String address;
+
+    @Column(nullable = false, columnDefinition = "TINYINT(1) DEFAULT 0")
+    private Boolean isActive;
+
 }
