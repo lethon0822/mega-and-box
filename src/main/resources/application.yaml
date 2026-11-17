@@ -60,7 +60,7 @@ spring:
       disable-swagger-default-url: true
       display-request-duration: true
     api-docs:
-      path: /v3/api-docs
+      path: /api/v3/api-docs
 
   logging:
     level:
