@@ -1,16 +1,12 @@
 package com.megaandbox.cinema.user.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@RequiredArgsConstructor
 public class SignUpReqDto {
 
     private String userEmail;

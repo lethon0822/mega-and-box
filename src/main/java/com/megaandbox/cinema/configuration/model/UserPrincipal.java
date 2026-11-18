@@ -33,7 +33,7 @@ public class UserPrincipal implements UserDetails, OAuth2User {
     }
 
     public Long getSignedUserId() {
-        return jwtUser.getSignedUserId();
+        return jwtUser.getUserId();
     }
 
     @Override

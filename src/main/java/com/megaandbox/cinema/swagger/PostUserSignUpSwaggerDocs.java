@@ -37,11 +37,11 @@ import java.lang.annotation.Target;
         // 성공 메세지 + res 답변
         @ApiResponse(
                 responseCode = "200",
-                description = "영화 목록 조회 성공",
+                description = "회원가입 성공",
                 content = @Content(
                         mediaType = "application/json",
                         examples = @ExampleObject(
-                                name = "SuccessResponse",
+                                name = "회원가입 성공",
                                 value = """
                                 {
                                   "code": "SUCCESS_001",

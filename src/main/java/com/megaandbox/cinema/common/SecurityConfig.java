@@ -42,7 +42,8 @@ public class SecurityConfig {
                                 "/swagger-resources/**",
                                 "/webjars/**",
 
-                                "/api/sign-up"
+                                "/api/sign-up",
+                                "/api/sign-in"
                         ).permitAll()
                         // 예시 페이지 오픈
                         .requestMatchers(
