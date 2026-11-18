@@ -9,6 +9,7 @@ import com.megaandbox.cinema.user.model.LoginDto;
 import com.megaandbox.cinema.user.model.LoginReqDto;
 import com.megaandbox.cinema.user.model.SignUpReqDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,8 +37,8 @@ public class UserController {
 
     @PostMapping("/sign-in")
     @PostUserSignInSwaggerDocs
-    public ResponseEntity<ApiResponse<LoginDto>> login(@RequestBody LoginReqDto req) {
-        LoginDto result = userService.login(req);
+    public ResponseEntity<ApiResponse<LoginDto>> login(HttpServletRequest request, HttpServletResponse response, @RequestBody LoginReqDto req) {
+        LoginDto result = userService.login(request, response, req);
         return ApiResponse.success(SuccessCode.OK, result);
     }
 

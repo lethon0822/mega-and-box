@@ -5,6 +5,7 @@ import com.megaandbox.cinema.configuration.enumCode.model.user.EnumUserGrade;
 import com.megaandbox.cinema.configuration.enumCode.model.user.EnumUserStatus;
 import com.megaandbox.cinema.configuration.exception.CustomException;
 import com.megaandbox.cinema.configuration.exception.ErrorCode;
+import com.megaandbox.cinema.configuration.jwt.JwtTokenManager;
 import com.megaandbox.cinema.configuration.jwt.JwtTokenProvider;
 import com.megaandbox.cinema.configuration.model.JwtUser;
 import com.megaandbox.cinema.entity.user.User;
@@ -14,6 +15,8 @@ import com.megaandbox.cinema.user.model.LoginResDto;
 import com.megaandbox.cinema.user.model.SignUpReqDto;
 import com.megaandbox.cinema.user.repository.UserRepository;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -30,7 +33,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final JwtTokenProvider jwtTokenProvider;
+    private final JwtTokenManager jwtTokenManager;
 
     public void signUp (@RequestBody SignUpReqDto req) {
         List<String> emailList = userRepository.findAll().stream().map(User::getEmail).toList();
@@ -58,7 +61,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public LoginDto login (@RequestBody LoginReqDto req) {
+    public LoginDto login (HttpServletRequest request, HttpServletResponse response, @RequestBody LoginReqDto req) {
         User user = userRepository.findByEmail(req.getUserEmail());
         if(user == null) {
             throw new CustomException(ErrorCode.USER_NOT_FOUND);
@@ -72,10 +75,11 @@ public class UserService {
         // 보안상 노출 방지
         res.setPassword(null);
         JwtUser jwtUser = new JwtUser(user.getUserId(), res.getStatus());
+        jwtTokenManager.issue(response,jwtUser);
 
         return LoginDto.builder()
                 .loginRes(res)
-                .accessToken(jwtTokenProvider.generateAccessToken(jwtUser))
+                .accessToken(jwtTokenManager.getAccessTokenFromCookie(request))
                 .build();
     }
 }
