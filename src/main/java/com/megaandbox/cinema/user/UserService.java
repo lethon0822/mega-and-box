@@ -1,12 +1,11 @@
 package com.megaandbox.cinema.user;
 
-import com.megaandbox.cinema.configuration.constants.ConstJwt;
 import com.megaandbox.cinema.configuration.enumCode.model.user.EnumUserGrade;
+import com.megaandbox.cinema.configuration.enumCode.model.user.EnumUserRoles;
 import com.megaandbox.cinema.configuration.enumCode.model.user.EnumUserStatus;
 import com.megaandbox.cinema.configuration.exception.CustomException;
 import com.megaandbox.cinema.configuration.exception.ErrorCode;
 import com.megaandbox.cinema.configuration.jwt.JwtTokenManager;
-import com.megaandbox.cinema.configuration.jwt.JwtTokenProvider;
 import com.megaandbox.cinema.configuration.model.JwtUser;
 import com.megaandbox.cinema.entity.user.User;
 import com.megaandbox.cinema.user.model.LoginDto;
@@ -52,7 +51,7 @@ public class UserService {
                 .gender(req.isUserGender())
                 .phone(req.getUserPhone())
                 .userStatus(EnumUserStatus.ACTIVE)
-                .grade((EnumUserGrade.BRONZE))
+                .grade(EnumUserGrade.BRONZE)
                 .profile(null)
                 .pwUpdatedAt(LocalDate.from(LocalDateTime.now()))
                 .naverAccount(null)
@@ -67,19 +66,25 @@ public class UserService {
             throw new CustomException(ErrorCode.USER_NOT_FOUND);
         }
 
-        LoginResDto res = new LoginResDto(user.getEmail(), user.getUserStatus(), user.getPassword());
+        LoginResDto res = new LoginResDto(user.getEmail(), user.getPassword());
         if(!passwordEncoder.matches(req.getPassword(), res.getPassword())) {
             throw new CustomException(ErrorCode.PASSWORD_MISMATCH);
         }
 
         // 보안상 노출 방지
         res.setPassword(null);
-        JwtUser jwtUser = new JwtUser(user.getUserId(), res.getStatus());
-        jwtTokenManager.issue(response,jwtUser);
+        JwtUser jwtUser = new JwtUser(user.getUserId(), EnumUserRoles.ROLE_USER);
+        jwtTokenManager.issue(response, jwtUser);
 
         return LoginDto.builder()
                 .loginRes(res)
                 .accessToken(jwtTokenManager.getAccessTokenFromCookie(request))
                 .build();
     }
+
+    public void logout (HttpServletResponse response) {
+        jwtTokenManager.signOut(response);
+    }
+
+
 }

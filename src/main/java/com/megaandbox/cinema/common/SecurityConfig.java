@@ -45,6 +45,10 @@ public class SecurityConfig {
                                 "/api/sign-up",
                                 "/api/sign-in"
                         ).permitAll()
+                        .requestMatchers(
+                                "/api/**"
+                        ).hasAnyRole("USER")
+
                         // 예시 페이지 오픈
                         .requestMatchers(
                                 "/api/v1/movies/**"

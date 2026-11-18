@@ -1,12 +1,12 @@
 package com.megaandbox.cinema.configuration.model;
 
-import com.megaandbox.cinema.configuration.enumCode.model.user.EnumUserStatus;
+import com.megaandbox.cinema.configuration.enumCode.model.user.EnumUserRoles;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
 public class JwtUser {
-    private Long userId;
-    private EnumUserStatus status;
+    private long userId;
+    private EnumUserRoles roles;
 }

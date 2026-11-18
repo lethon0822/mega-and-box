@@ -4,6 +4,7 @@ import com.megaandbox.cinema.common.ApiResponse;
 import com.megaandbox.cinema.common.SuccessCode;
 import com.megaandbox.cinema.configuration.jwt.JwtTokenManager;
 import com.megaandbox.cinema.swagger.PostUserSignInSwaggerDocs;
+import com.megaandbox.cinema.swagger.PostUserSignOutSwaggerDocs;
 import com.megaandbox.cinema.swagger.PostUserSignUpSwaggerDocs;
 import com.megaandbox.cinema.user.model.LoginDto;
 import com.megaandbox.cinema.user.model.LoginReqDto;
@@ -11,6 +12,7 @@ import com.megaandbox.cinema.user.model.SignUpReqDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +32,7 @@ public class UserController {
     // 회원가입
     @PostMapping("/sign-up")
     @PostUserSignUpSwaggerDocs
-    public ResponseEntity<ApiResponse<Void>> signUp (@RequestBody SignUpReqDto req) {
+    public ResponseEntity<ApiResponse<Void>> signUp (@Valid @RequestBody SignUpReqDto req) {
         userService.signUp(req);
         return ApiResponse.success(SuccessCode.OK);
     }
@@ -41,6 +43,15 @@ public class UserController {
         LoginDto result = userService.login(request, response, req);
         return ApiResponse.success(SuccessCode.OK, result);
     }
+
+    @PostMapping("/sign-out")
+    @PostUserSignOutSwaggerDocs
+    public ResponseEntity<ApiResponse<Void>> logout(HttpServletResponse response) {
+        userService.logout(response);
+        return ApiResponse.success(SuccessCode.OK);
+    }
+
+
 
 
 }
