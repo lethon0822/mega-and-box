@@ -27,7 +27,7 @@ public class User extends UpdatedAt {
     @Column(length = 30, nullable = false, unique = true)
     private String email;
 
-    @Column(length = 30, nullable = false)
+    @Column(length = 100, nullable = false)
     private String password;
 
     @Column(length = 20, nullable = false)
@@ -45,8 +45,9 @@ public class User extends UpdatedAt {
     @Column(nullable = false)
     private EnumUserStatus userStatus;
 
+    @Builder.Default
     @Column(nullable = false)
-    private Long point;
+    private Long point = 0L;
 
     @Column(nullable = false, length = 20)
     private EnumUserGrade grade;

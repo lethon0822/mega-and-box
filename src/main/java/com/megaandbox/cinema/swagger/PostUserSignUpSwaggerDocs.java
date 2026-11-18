@@ -17,8 +17,21 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Operation(
         // 해당 API 요약, 설명
-        summary = "영화 목록 조회",
-        description = "현재 상영 중이거나 개봉 예정인 영화 목록을 페이징 및 정렬 조건에 맞춰 조회합니다."
+        summary = "회원가입",
+        description = """
+                **새로운 사용자가 회원가입을 합니다.**
+                
+                **Request**
+                - userEmail : 사용자 이메일
+                - userPw : 사용자 비밀번호
+                - userPw : 사용자 비밀번호
+                - userName : 사용자 이름
+                - userGender : 사용자 성별
+                - userPhone : 사용자 휴대폰 번호
+                
+                **Response**
+                - null
+                """
 )
 @ApiResponses({
         // 성공 메세지 + res 답변
@@ -31,25 +44,9 @@ import java.lang.annotation.Target;
                                 name = "SuccessResponse",
                                 value = """
                                 {
-                                  "timestamp": "2026-10-01T15:00:00",
-                                  "code": "PAY_005",
-                                  "message": "예매가 성공적으로 완료되었습니다.",
-                                  "data": {
-                                    "content": [
-                                      {
-                                        "movieId": 1,
-                                        "title": "듄: 파트 3",
-                                        "posterUrl": "https://example.com/poster1.jpg",
-                                        "releaseDate": "2026-10-15",
-                                        "reservationRate": 34.5,
-                                        "rating": "RATE_15"
-                                      }
-                                    ],
-                                    "page": 0,
-                                    "size": 10,
-                                    "totalElements": 1,
-                                    "totalPages": 1
-                                  }
+                                  "code": "SUCCESS_001",
+                                  "message": "요청이 정상적으로 처리되었습니다.",
+                                  "timestamp": "2026-11-18T10:14:49.092184"
                                 }
                                 """
                         )
@@ -95,5 +92,5 @@ import java.lang.annotation.Target;
                 )
         )
 })
-public @interface GetMovieListSwaggerDocs {
+public @interface PostUserSignUpSwaggerDocs {
 }
