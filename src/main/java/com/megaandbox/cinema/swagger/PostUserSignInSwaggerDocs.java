@@ -41,14 +41,17 @@ import java.lang.annotation.Target;
                                 name = "로그인 성공",
                                 value = """
                                 {
-                                  "code": "SUCCESS_001",
-                                  "message": "요청이 정상적으로 처리되었습니다.",
-                                  "timestamp": "2026-11-18T10:14:49.092184",
-                                  "data" : {
-                                    "userId" : 1,
-                                    "status" : "BRONZE"
-                                  }
-                                }
+                                   "code": "SUCCESS_001",
+                                   "data": {
+                                     "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIke0pXVF9JU1N9IiwiaWF0IjoxNzk0OTY4MjExLCJleHAiOjE3OTQ5NjkxMTEsInNpZ25lZFVzZXIiOiJ7XCJ1c2VySWRcIjoyLFwic3RhdHVzXCI6XCLsnKDtmqhcIn0ifQ.GS6U7qfXwYJjJj_jTwlukEXdasbB33Ob6Ng8lMY990U",
+                                     "loginRes": {
+                                       "userEmail": "cjftn0104@gmail.com",
+                                       "status": "유효"
+                                     }
+                                   },
+                                   "message": "요청이 정상적으로 처리되었습니다.",
+                                   "timestamp": "2026-11-18T11:16:51.2720972"
+                                 }
                                 """
                         )
                 )
