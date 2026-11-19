@@ -1,5 +1,6 @@
 package com.megaandbox.cinema.configuration.model;
 
+import com.megaandbox.cinema.configuration.enumCode.model.user.EnumUserRoles;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
@@ -22,7 +23,7 @@ public class UserPrincipal implements UserDetails, OAuth2User {
         this.jwtUser = jwtUser;
         List<SimpleGrantedAuthority> list = new ArrayList<>();
         //TODO: EnumUserRole은 현재 존재하지 않습니다.
-//        for(EnumUserRole role : jwtUser.getRoles()){
+//        for(EnumUserRoles role : jwtUser.getRoles()){
 //            String roleName = String.format("ROLE_%s", role.name());
 //            log.info("roleName: {}", roleName);
 //            list.add(new SimpleGrantedAuthority(roleName));
@@ -33,7 +34,7 @@ public class UserPrincipal implements UserDetails, OAuth2User {
     }
 
     public Long getSignedUserId() {
-        return jwtUser.getSignedUserId();
+        return jwtUser.getUserId();
     }
 
     @Override

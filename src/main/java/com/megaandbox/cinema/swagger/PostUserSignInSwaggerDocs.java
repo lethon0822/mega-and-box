@@ -17,40 +17,41 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Operation(
         // 해당 API 요약, 설명
-        summary = "영화 목록 조회",
-        description = "현재 상영 중이거나 개봉 예정인 영화 목록을 페이징 및 정렬 조건에 맞춰 조회합니다."
+        summary = "로그인",
+        description = """
+                **사용자가 로그인을 합니다.**
+                
+                **Request**
+                - userEmail : 사용자 이메일
+                - password : 사용자 비밀번호
+                
+                **Response**
+                - userId : 사용자 PK
+                - status : 사용자 등급
+                """
 )
 @ApiResponses({
         // 성공 메세지 + res 답변
         @ApiResponse(
                 responseCode = "200",
-                description = "영화 목록 조회 성공",
+                description = "로그인 성공",
                 content = @Content(
                         mediaType = "application/json",
                         examples = @ExampleObject(
-                                name = "SuccessResponse",
+                                name = "로그인 성공",
                                 value = """
                                 {
-                                  "timestamp": "2026-10-01T15:00:00",
-                                  "code": "PAY_005",
-                                  "message": "예매가 성공적으로 완료되었습니다.",
-                                  "data": {
-                                    "content": [
-                                      {
-                                        "movieId": 1,
-                                        "title": "듄: 파트 3",
-                                        "posterUrl": "https://example.com/poster1.jpg",
-                                        "releaseDate": "2026-10-15",
-                                        "reservationRate": 34.5,
-                                        "rating": "RATE_15"
-                                      }
-                                    ],
-                                    "page": 0,
-                                    "size": 10,
-                                    "totalElements": 1,
-                                    "totalPages": 1
-                                  }
-                                }
+                                   "code": "SUCCESS_001",
+                                   "data": {
+                                     "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIke0pXVF9JU1N9IiwiaWF0IjoxNzk0OTY4MjExLCJleHAiOjE3OTQ5NjkxMTEsInNpZ25lZFVzZXIiOiJ7XCJ1c2VySWRcIjoyLFwic3RhdHVzXCI6XCLsnKDtmqhcIn0ifQ.GS6U7qfXwYJjJj_jTwlukEXdasbB33Ob6Ng8lMY990U",
+                                     "loginRes": {
+                                       "userEmail": "cjftn0104@gmail.com",
+                                       "status": "유효"
+                                     }
+                                   },
+                                   "message": "요청이 정상적으로 처리되었습니다.",
+                                   "timestamp": "2026-11-18T11:16:51.2720972"
+                                 }
                                 """
                         )
                 )
@@ -95,5 +96,5 @@ import java.lang.annotation.Target;
                 )
         )
 })
-public @interface GetMovieListSwaggerDocs {
+public @interface PostUserSignInSwaggerDocs {
 }

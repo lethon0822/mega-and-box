@@ -1,6 +1,7 @@
 package com.megaandbox.cinema.common;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.http.ResponseEntity;
@@ -11,10 +12,17 @@ import java.time.LocalDateTime;
 @Builder
 public class ApiResponse<T> {
 
+    @Builder.Default
+    @Schema(description = "응답 시간")
     private final LocalDateTime timestamp = LocalDateTime.now();
+
+    @Schema(description = "응답 코드", example = "SUCCESS_001")
     private final String code;
+
+    @Schema(description = "응답 메시지", example = "요청이 정상적으로 처리되었습니다.")
     private final String message;
 
+    @Schema(description = "응답 데이터")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private final T data;
 

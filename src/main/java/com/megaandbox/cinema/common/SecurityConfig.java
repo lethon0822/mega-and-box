@@ -40,8 +40,15 @@ public class SecurityConfig {
                                 "/swagger-ui.html",
                                 "/api/v3/api-docs/**",
                                 "/swagger-resources/**",
-                                "/webjars/**"
+                                "/webjars/**",
+
+                                "/api/sign-up",
+                                "/api/sign-in",
+                                "/api/**"
                         ).permitAll()
+//                        .requestMatchers(
+//                        ).hasAnyRole("USER")
+
                         // 예시 페이지 오픈
                         .requestMatchers(
                                 "/api/v1/movies/**"

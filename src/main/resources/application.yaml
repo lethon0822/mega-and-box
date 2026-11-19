@@ -51,6 +51,18 @@ spring:
       map-underscore-to-camel-case: true
       default-statement-timeout: 10
 
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:} # 비밀번호가 없으면 비워둠
+      timeout: 3000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+
   # Swagger (springdoc-openapi)
   springdoc:
     swagger-ui:
