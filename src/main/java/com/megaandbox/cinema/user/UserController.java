@@ -4,10 +4,7 @@ import com.megaandbox.cinema.common.ApiResponse;
 import com.megaandbox.cinema.common.SuccessCode;
 import com.megaandbox.cinema.configuration.jwt.JwtTokenManager;
 import com.megaandbox.cinema.configuration.model.UserPrincipal;
-import com.megaandbox.cinema.swagger.PostUserConformPasswordSwaggerDocs;
-import com.megaandbox.cinema.swagger.PostUserSignInSwaggerDocs;
-import com.megaandbox.cinema.swagger.PostUserSignOutSwaggerDocs;
-import com.megaandbox.cinema.swagger.PostUserSignUpSwaggerDocs;
+import com.megaandbox.cinema.swagger.*;
 import com.megaandbox.cinema.user.model.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
@@ -62,6 +59,7 @@ public class UserController {
     }
 
     @PutMapping("/auth/renewal")
+    @PostUserChangePasswordSwaggerDocs
     public ResponseEntity<ApiResponse<Void>> renewalPassword (@AuthenticationPrincipal UserPrincipal userPrincipal, ChangePasswordReq req){
         userService.renewalPassword(userPrincipal.getSignedUserId(), req);
         return ApiResponse.success(SuccessCode.OK);
