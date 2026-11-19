@@ -3,12 +3,12 @@ package com.megaandbox.cinema.user;
 import com.megaandbox.cinema.common.ApiResponse;
 import com.megaandbox.cinema.common.SuccessCode;
 import com.megaandbox.cinema.configuration.jwt.JwtTokenManager;
+import com.megaandbox.cinema.configuration.model.UserPrincipal;
+import com.megaandbox.cinema.swagger.PostUserConformPasswordSwaggerDocs;
 import com.megaandbox.cinema.swagger.PostUserSignInSwaggerDocs;
 import com.megaandbox.cinema.swagger.PostUserSignOutSwaggerDocs;
 import com.megaandbox.cinema.swagger.PostUserSignUpSwaggerDocs;
-import com.megaandbox.cinema.user.model.LoginDto;
-import com.megaandbox.cinema.user.model.LoginReqDto;
-import com.megaandbox.cinema.user.model.SignUpReqDto;
+import com.megaandbox.cinema.user.model.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,7 +16,9 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -52,6 +54,17 @@ public class UserController {
     }
 
 
+    @PostMapping("/auth/confirm")
+    @PostUserConformPasswordSwaggerDocs
+    public ResponseEntity<ApiResponse<Void>> confirmPassword (@AuthenticationPrincipal UserPrincipal userPrincipal, ConformPasswordReq req) {
+        userService.confirmPassword(userPrincipal.getSignedUserId(), req);
+        return ApiResponse.success(SuccessCode.OK);
+    }
 
+//    @PutMapping("/auth/renewal")
+//    public ResponseEntity<ApiResponse<Void>> renewalPassword (@AuthenticationPrincipal UserPrincipal userPrincipal, ChangePasswordReq req){
+//        userService.renewalPassword(userPrincipal.getSignedUserId(), req);
+//        return ApiResponse.success(SuccessCode.OK);
+//    }
 
 }

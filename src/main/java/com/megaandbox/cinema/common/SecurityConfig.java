@@ -43,11 +43,11 @@ public class SecurityConfig {
                                 "/webjars/**",
 
                                 "/api/sign-up",
-                                "/api/sign-in"
-                        ).permitAll()
-                        .requestMatchers(
+                                "/api/sign-in",
                                 "/api/**"
-                        ).hasAnyRole("USER")
+                        ).permitAll()
+//                        .requestMatchers(
+//                        ).hasAnyRole("USER")
 
                         // 예시 페이지 오픈
                         .requestMatchers(

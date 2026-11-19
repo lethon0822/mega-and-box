@@ -7,11 +7,9 @@ import com.megaandbox.cinema.configuration.exception.CustomException;
 import com.megaandbox.cinema.configuration.exception.ErrorCode;
 import com.megaandbox.cinema.configuration.jwt.JwtTokenManager;
 import com.megaandbox.cinema.configuration.model.JwtUser;
+import com.megaandbox.cinema.configuration.model.UserPrincipal;
 import com.megaandbox.cinema.entity.user.User;
-import com.megaandbox.cinema.user.model.LoginDto;
-import com.megaandbox.cinema.user.model.LoginReqDto;
-import com.megaandbox.cinema.user.model.LoginResDto;
-import com.megaandbox.cinema.user.model.SignUpReqDto;
+import com.megaandbox.cinema.user.model.*;
 import com.megaandbox.cinema.user.repository.UserRepository;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,6 +22,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -42,10 +41,10 @@ public class UserService {
             }
         }
 
-        String EncodingPw = passwordEncoder.encode(req.getUserPw());
+        String encodingPw = passwordEncoder.encode(req.getUserPw());
         User user = User.builder()
                 .email(req.getUserEmail())
-                .password(EncodingPw)
+                .password(encodingPw)
                 .name(req.getUserName())
                 .birth(req.getUserBirth())
                 .gender(req.isUserGender())
@@ -86,5 +85,17 @@ public class UserService {
         jwtTokenManager.signOut(response);
     }
 
+
+    public void confirmPassword(Long userId, ConformPasswordReq req) {
+        String encodedPw = userRepository.findPasswordByUserId(userId);
+
+        if (encodedPw == null) {
+            throw new CustomException(ErrorCode.USER_NOT_FOUND);
+        }
+
+        if (!passwordEncoder.matches(req.getPassword(), encodedPw)) {
+            throw new CustomException(ErrorCode.PASSWORD_MISMATCH);
+        }
+    }
 
 }
