@@ -61,10 +61,10 @@ public class UserController {
         return ApiResponse.success(SuccessCode.OK);
     }
 
-//    @PutMapping("/auth/renewal")
-//    public ResponseEntity<ApiResponse<Void>> renewalPassword (@AuthenticationPrincipal UserPrincipal userPrincipal, ChangePasswordReq req){
-//        userService.renewalPassword(userPrincipal.getSignedUserId(), req);
-//        return ApiResponse.success(SuccessCode.OK);
-//    }
+    @PutMapping("/auth/renewal")
+    public ResponseEntity<ApiResponse<Void>> renewalPassword (@AuthenticationPrincipal UserPrincipal userPrincipal, ChangePasswordReq req){
+        userService.renewalPassword(userPrincipal.getSignedUserId(), req);
+        return ApiResponse.success(SuccessCode.OK);
+    }
 
 }

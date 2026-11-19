@@ -22,6 +22,7 @@ public enum ErrorCode {
     FORBIDDEN(HttpStatus.FORBIDDEN, "AUTH_005", "접근 권한이 없습니다."),
     SOCIAL_ACCOUNT_ALREADY_LINKED(HttpStatus.CONFLICT, "AUTH_006", "이미 다른 계정에 연동된 소셜 계정입니다."),
     SOCIAL_ACCOUNT_NOT_FOUND(HttpStatus.NOT_FOUND, "AUTH_007", "연동된 소셜 계정 정보를 찾을 수 없습니다."),
+    PASSWORD_MATCH(HttpStatus.BAD_REQUEST, "AUTH_008", "동일한 비밀번호입니다. 변경을 위해 다른 비밀번호를 입력해주세요."),
 
     PAYMENT_METHOD_NOT_FOUND(HttpStatus.NOT_FOUND, "USER_001", "등록된 결제수단을 찾을 수 없습니다."),
     PAYMENT_METHOD_LIMIT_EXCEEDED(HttpStatus.BAD_REQUEST, "USER_002", "등록 가능한 결제수단 최대 개수를 초과했습니다."),
@@ -58,6 +59,8 @@ public enum ErrorCode {
     // membership
     MEMBERSHIP_ALREADY_JOINED(HttpStatus.CONFLICT, "MEM_001", "이미 가입된 멤버십이 존재합니다."),
     MEMBERSHIP_NOT_FOUND(HttpStatus.NOT_FOUND, "MEM_002", "가입된 멤버십 정보를 찾을 수 없습니다."),
+
+
 
     ;
 
