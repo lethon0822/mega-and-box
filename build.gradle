@@ -19,6 +19,10 @@ repositories {
 }
 
 dependencies {
+    //dummy생성용
+    // Source: https://mvnrepository.com/artifact/net.datafaker/datafaker
+    implementation("net.datafaker:datafaker:2.7.0")
+
     //oauth2
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
