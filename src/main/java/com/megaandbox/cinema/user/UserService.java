@@ -7,7 +7,6 @@ import com.megaandbox.cinema.configuration.exception.CustomException;
 import com.megaandbox.cinema.configuration.exception.ErrorCode;
 import com.megaandbox.cinema.configuration.jwt.JwtTokenManager;
 import com.megaandbox.cinema.configuration.model.JwtUser;
-import com.megaandbox.cinema.configuration.model.UserPrincipal;
 import com.megaandbox.cinema.entity.user.User;
 import com.megaandbox.cinema.user.model.*;
 import com.megaandbox.cinema.user.repository.UserRepository;
@@ -23,7 +22,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Service
@@ -87,7 +85,7 @@ public class UserService {
     }
 
 
-    public void confirmPassword(Long userId, ConformPasswordReq req) {
+    public void confirmPassword(Long userId, ConfirmPasswordReq req) {
         String encodedPw = userRepository.findPasswordByUserId(userId);
 
         if (encodedPw == null) {
@@ -110,5 +108,18 @@ public class UserService {
 
         String encodedNewPw = passwordEncoder.encode(req.getNewPassword());
         user.changePassword(encodedNewPw);
+    }
+
+    @Transactional
+    public void deleteUser(Long userId, ConfirmPasswordReq req, HttpServletResponse response) {
+        User user  = userRepository.findByUserId(userId)
+                .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
+
+        if (!passwordEncoder.matches(req.getPassword(), user.getPassword())) {
+            throw new CustomException(ErrorCode.PASSWORD_MISMATCH);
+        }
+
+        user.deleteUser();
+        jwtTokenManager.signOut(response);
     }
 }

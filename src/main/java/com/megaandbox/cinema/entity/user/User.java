@@ -67,4 +67,8 @@ public class User extends UpdatedAt {
     public void changePassword(String encodedNewPw) {
         this.password = encodedNewPw;
     }
+
+    public void deleteUser() {
+        this.userStatus = EnumUserStatus.TERMINATION_SCHEDULED;
+    }
 }

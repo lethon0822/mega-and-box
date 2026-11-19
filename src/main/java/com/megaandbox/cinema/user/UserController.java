@@ -53,15 +53,21 @@ public class UserController {
 
     @PostMapping("/auth/confirm")
     @PostUserConformPasswordSwaggerDocs
-    public ResponseEntity<ApiResponse<Void>> confirmPassword (@AuthenticationPrincipal UserPrincipal userPrincipal, ConformPasswordReq req) {
+    public ResponseEntity<ApiResponse<Void>> confirmPassword (@AuthenticationPrincipal UserPrincipal userPrincipal, @RequestBody ConfirmPasswordReq req) {
         userService.confirmPassword(userPrincipal.getSignedUserId(), req);
         return ApiResponse.success(SuccessCode.OK);
     }
 
     @PutMapping("/auth/renewal")
     @PostUserChangePasswordSwaggerDocs
-    public ResponseEntity<ApiResponse<Void>> renewalPassword (@AuthenticationPrincipal UserPrincipal userPrincipal, ChangePasswordReq req){
+    public ResponseEntity<ApiResponse<Void>> renewalPassword (@AuthenticationPrincipal UserPrincipal userPrincipal, @RequestBody ChangePasswordReq req){
         userService.renewalPassword(userPrincipal.getSignedUserId(), req);
+        return ApiResponse.success(SuccessCode.OK);
+    }
+
+    @PostMapping("/auth/delete")
+    public ResponseEntity<ApiResponse<Void>> deleteUser (@AuthenticationPrincipal UserPrincipal userPrincipal, @RequestBody ConfirmPasswordReq req, HttpServletResponse response) {
+        userService.deleteUser(userPrincipal.getSignedUserId(), req, response);
         return ApiResponse.success(SuccessCode.OK);
     }
 
