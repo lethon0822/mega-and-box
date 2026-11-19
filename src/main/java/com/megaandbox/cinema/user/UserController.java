@@ -4,10 +4,7 @@ import com.megaandbox.cinema.common.ApiResponse;
 import com.megaandbox.cinema.common.SuccessCode;
 import com.megaandbox.cinema.configuration.jwt.JwtTokenManager;
 import com.megaandbox.cinema.configuration.model.UserPrincipal;
-import com.megaandbox.cinema.swagger.PostUserConformPasswordSwaggerDocs;
-import com.megaandbox.cinema.swagger.PostUserSignInSwaggerDocs;
-import com.megaandbox.cinema.swagger.PostUserSignOutSwaggerDocs;
-import com.megaandbox.cinema.swagger.PostUserSignUpSwaggerDocs;
+import com.megaandbox.cinema.swagger.*;
 import com.megaandbox.cinema.user.model.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
@@ -56,15 +53,22 @@ public class UserController {
 
     @PostMapping("/auth/confirm")
     @PostUserConformPasswordSwaggerDocs
-    public ResponseEntity<ApiResponse<Void>> confirmPassword (@AuthenticationPrincipal UserPrincipal userPrincipal, ConformPasswordReq req) {
+    public ResponseEntity<ApiResponse<Void>> confirmPassword (@AuthenticationPrincipal UserPrincipal userPrincipal, @RequestBody ConfirmPasswordReq req) {
         userService.confirmPassword(userPrincipal.getSignedUserId(), req);
         return ApiResponse.success(SuccessCode.OK);
     }
 
-//    @PutMapping("/auth/renewal")
-//    public ResponseEntity<ApiResponse<Void>> renewalPassword (@AuthenticationPrincipal UserPrincipal userPrincipal, ChangePasswordReq req){
-//        userService.renewalPassword(userPrincipal.getSignedUserId(), req);
-//        return ApiResponse.success(SuccessCode.OK);
-//    }
+    @PutMapping("/auth/renewal")
+    @PostUserChangePasswordSwaggerDocs
+    public ResponseEntity<ApiResponse<Void>> renewalPassword (@AuthenticationPrincipal UserPrincipal userPrincipal, @RequestBody ChangePasswordReq req){
+        userService.renewalPassword(userPrincipal.getSignedUserId(), req);
+        return ApiResponse.success(SuccessCode.OK);
+    }
+
+    @PostMapping("/auth/delete")
+    public ResponseEntity<ApiResponse<Void>> deleteUser (@AuthenticationPrincipal UserPrincipal userPrincipal, @RequestBody ConfirmPasswordReq req, HttpServletResponse response) {
+        userService.deleteUser(userPrincipal.getSignedUserId(), req, response);
+        return ApiResponse.success(SuccessCode.OK);
+    }
 
 }

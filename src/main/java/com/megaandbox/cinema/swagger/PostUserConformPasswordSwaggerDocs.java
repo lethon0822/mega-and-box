@@ -22,7 +22,7 @@ import java.lang.annotation.Target;
                 **사용자가 비밀번호 인증을 합니다.**
                 
                 **Request**
-                - null
+                - password : 비밀번호
                 
                 **Response**
                 - null

@@ -64,4 +64,11 @@ public class User extends UpdatedAt {
     @Column(length = 100)
     private String kakaoAccount;
 
+    public void changePassword(String encodedNewPw) {
+        this.password = encodedNewPw;
+    }
+
+    public void deleteUser() {
+        this.userStatus = EnumUserStatus.TERMINATION_SCHEDULED;
+    }
 }
