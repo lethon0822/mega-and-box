@@ -52,7 +52,7 @@ public class UserController {
 
 
     @PostMapping("/auth/confirm")
-    @PostUserConformPasswordSwaggerDocs
+    @PostUserConfirmPasswordSwaggerDocs
     public ResponseEntity<ApiResponse<Void>> confirmPassword (@AuthenticationPrincipal UserPrincipal userPrincipal, @RequestBody ConfirmPasswordReq req) {
         userService.confirmPassword(userPrincipal.getSignedUserId(), req);
         return ApiResponse.success(SuccessCode.OK);
@@ -66,6 +66,7 @@ public class UserController {
     }
 
     @PostMapping("/auth/delete")
+    @PostUserDeleteSwaggerDocs
     public ResponseEntity<ApiResponse<Void>> deleteUser (@AuthenticationPrincipal UserPrincipal userPrincipal, @RequestBody ConfirmPasswordReq req, HttpServletResponse response) {
         userService.deleteUser(userPrincipal.getSignedUserId(), req, response);
         return ApiResponse.success(SuccessCode.OK);
