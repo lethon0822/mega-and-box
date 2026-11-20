@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -26,6 +27,8 @@ public class SeatDummy extends JpaDummy {
     void saveSeat() {
 
         List<Auditorium> auditoriums = auditoriumRepository.findAll();
+        List<Seat> seats = new ArrayList<>();
+
 
         for (Auditorium auditorium : auditoriums) {
             for (char line = 'A'; line <= 'H'; line++) {
@@ -50,9 +53,10 @@ public class SeatDummy extends JpaDummy {
                             .seatType(seatType)
                             .build();
 
-                    seatRepository.save(seat);
+                    seats.add(seat);
                 }
             }
         }
+        seatRepository.saveAll(seats);
     }
 }

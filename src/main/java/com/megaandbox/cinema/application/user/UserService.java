@@ -1,5 +1,6 @@
-package com.megaandbox.cinema.user;
+package com.megaandbox.cinema.application.user;
 
+import com.megaandbox.cinema.application.user.model.*;
 import com.megaandbox.cinema.configuration.enumCode.model.user.EnumUserGrade;
 import com.megaandbox.cinema.configuration.enumCode.model.user.EnumUserRoles;
 import com.megaandbox.cinema.configuration.enumCode.model.user.EnumUserStatus;
@@ -9,7 +10,7 @@ import com.megaandbox.cinema.configuration.jwt.JwtTokenManager;
 import com.megaandbox.cinema.configuration.model.JwtUser;
 import com.megaandbox.cinema.entity.user.User;
 import com.megaandbox.cinema.user.model.*;
-import com.megaandbox.cinema.user.repository.UserRepository;
+import com.megaandbox.cinema.application.user.repository.UserRepository;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
