@@ -1,11 +1,12 @@
-package com.megaandbox.cinema.user;
+package com.megaandbox.cinema.application.user;
 
+import com.megaandbox.cinema.application.user.model.*;
 import com.megaandbox.cinema.common.ApiResponse;
 import com.megaandbox.cinema.common.SuccessCode;
 import com.megaandbox.cinema.configuration.jwt.JwtTokenManager;
 import com.megaandbox.cinema.configuration.model.UserPrincipal;
-import com.megaandbox.cinema.swagger.*;
-import com.megaandbox.cinema.user.model.*;
+import com.megaandbox.cinema.swagger.user.*;
+import com.megaandbox.cinema.application.user.model.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

@@ -12,8 +12,7 @@ import lombok.*;
 public class ScreeningType {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long screeningTypeId;
+    private String screeningTypeId;
 
     @Column(nullable = false, length = 20)
     private String typeName;

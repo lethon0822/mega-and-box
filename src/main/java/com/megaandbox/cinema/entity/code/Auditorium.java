@@ -19,7 +19,7 @@ public class Auditorium {
     @JoinColumn(name = "theater_id", nullable = false)
     private Theater theater;
 
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false, length = 50)
     private String auditoriumName;
 
     @Column(nullable = false)

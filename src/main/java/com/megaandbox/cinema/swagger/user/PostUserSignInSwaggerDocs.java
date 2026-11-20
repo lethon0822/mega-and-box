@@ -1,4 +1,4 @@
-package com.megaandbox.cinema.swagger;
+package com.megaandbox.cinema.swagger.user;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

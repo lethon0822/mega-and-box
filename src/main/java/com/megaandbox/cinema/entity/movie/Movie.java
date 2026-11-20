@@ -37,7 +37,7 @@ public class Movie extends UpdatedAt {
     @Column(nullable = false)
     private Long audienceCount;
 
-    @Column(nullable = false)
+    @Column
     private String image;
 
     // 영상 주소

@@ -17,5 +17,5 @@ public class MovieScreenIds implements Serializable {
 
     private Long movieId;
 
-    private Integer screeningTypeId;
+    private String screeningTypeId;
 }

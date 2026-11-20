@@ -1,4 +1,4 @@
-package com.megaandbox.cinema.user.repository;
+package com.megaandbox.cinema.application.user.repository;
 
 import com.megaandbox.cinema.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;

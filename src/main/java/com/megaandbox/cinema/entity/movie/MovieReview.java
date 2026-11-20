@@ -36,6 +36,6 @@ public class MovieReview extends CreatedAt {
     private String review;
 
     @Column(nullable = false)
-    private int like;
+    private int reviewLike;
 
 }

@@ -1,4 +1,4 @@
-package com.megaandbox.cinema.swagger;
+package com.megaandbox.cinema.swagger.user;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -17,12 +17,13 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Operation(
         // 해당 API 요약, 설명
-        summary = "로그아웃",
+        summary = "비밀번호 변경",
         description = """
-                **사용자가 로그아웃을 합니다.**
+                **사용자가 비밀번호 변경을 합니다.**
                 
                 **Request**
-                - null
+                - currentPassword : 기존 비밀번호
+                - newPassword : 새로운 비밀번호
                 
                 **Response**
                 - null
@@ -32,11 +33,11 @@ import java.lang.annotation.Target;
         // 성공 메세지 + res 답변
         @ApiResponse(
                 responseCode = "200",
-                description = "로그아웃 성공",
+                description = "비밀번호 변경 성공",
                 content = @Content(
                         mediaType = "application/json",
                         examples = @ExampleObject(
-                                name = "로그아웃 성공",
+                                name = "비밀번호 변경 성공",
                                 value = """
                                 {
                                   "code": "SUCCESS_001",
@@ -87,5 +88,5 @@ import java.lang.annotation.Target;
                 )
         )
 })
-public @interface PostUserSignOutSwaggerDocs {
+public @interface PostUserChangePasswordSwaggerDocs {
 }

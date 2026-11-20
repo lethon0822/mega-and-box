@@ -1,4 +1,4 @@
-package com.megaandbox.cinema.user.model;
+package com.megaandbox.cinema.application.user.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.megaandbox.cinema.swagger;
+package com.megaandbox.cinema.swagger.user;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -17,9 +17,9 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Operation(
         // 해당 API 요약, 설명
-        summary = "비밀번호 인증",
+        summary = "회원 탈퇴",
         description = """
-                **사용자가 비밀번호 인증을 합니다.**
+                **사용자가 회원 탈퇴를 합니다.**
                 
                 **Request**
                 - password : 비밀번호
@@ -32,11 +32,11 @@ import java.lang.annotation.Target;
         // 성공 메세지 + res 답변
         @ApiResponse(
                 responseCode = "200",
-                description = "비밀번호 인증 성공",
+                description = "회원 탈퇴 성공",
                 content = @Content(
                         mediaType = "application/json",
                         examples = @ExampleObject(
-                                name = "비밀번호 인증 성공",
+                                name = "회원 탈퇴 성공",
                                 value = """
                                 {
                                   "code": "SUCCESS_001",
@@ -87,5 +87,5 @@ import java.lang.annotation.Target;
                 )
         )
 })
-public @interface PostUserConfirmPasswordSwaggerDocs {
+public @interface PostUserDeleteSwaggerDocs {
 }

@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @ConfigurationPropertiesScan
 @SpringBootApplication
-@EnableJpaAuditing
 public class CinemaApplication {
 
     public static void main(String[] args) {
