@@ -5,6 +5,6 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class ConformPasswordReq {
+public class ConfirmPasswordReq {
     private String password;
 }
