@@ -15,7 +15,7 @@ import java.time.LocalTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
+// @EqualsAndHashCode
 public class MovieSchedule extends UpdatedAt {
 
     @Id

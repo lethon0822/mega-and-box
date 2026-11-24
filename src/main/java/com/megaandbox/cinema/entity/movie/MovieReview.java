@@ -10,7 +10,7 @@ import lombok.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
+//@EqualsAndHashCode
 @Builder
 @Table(uniqueConstraints = {
         @UniqueConstraint(columnNames = {"movie_id", "user_id"})

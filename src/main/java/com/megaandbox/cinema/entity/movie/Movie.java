@@ -72,7 +72,7 @@ public class Movie extends UpdatedAt {
     private Boolean isExclusive;
 
     @Column(nullable = false, precision = 10, scale = 1)
-    private BigDecimal reservationRate= BigDecimal.ZERO;
+    private BigDecimal reservationRate;
 
     // 영화 - 장르 연결
     @Builder.Default
