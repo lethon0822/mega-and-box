@@ -1,4 +1,10 @@
 constants:
+  file:
+    upload-directory:
+    movie-pic: /movie
+    store-pic: /store
+    event-pic: /event
+    still-cut: /still_cut
   jwt:
     issuer: ${JWT_ISS} #토큰 발행자
     bearer-format: JWT

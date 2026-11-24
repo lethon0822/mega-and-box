@@ -9,7 +9,7 @@ import com.megaandbox.cinema.configuration.exception.ErrorCode;
 import com.megaandbox.cinema.configuration.jwt.JwtTokenManager;
 import com.megaandbox.cinema.configuration.model.JwtUser;
 import com.megaandbox.cinema.entity.user.User;
-import com.megaandbox.cinema.user.model.*;
+import com.megaandbox.cinema.application.user.model.*;
 import com.megaandbox.cinema.application.user.repository.UserRepository;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.servlet.http.HttpServletRequest;

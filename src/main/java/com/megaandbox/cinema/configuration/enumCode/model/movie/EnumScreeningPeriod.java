@@ -10,9 +10,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum EnumScreeningPeriod implements EnumMapperType {
 
-    NORMAL("moring", "조조"),
-    SPECIAL("special", "일반"),
-    DISABLED("night", "심야");
+    MORNING("morning", "조조"),
+    STANDARD("standard", "일반"),
+    NIGHT("night", "심야");
 
     private final String code;
     private final String value;
